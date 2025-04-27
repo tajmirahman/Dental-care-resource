@@ -6,6 +6,7 @@ const MainLayout = () => {
         <div>
             
             <Outlet></Outlet>
+            
         </div>
     );
 };
