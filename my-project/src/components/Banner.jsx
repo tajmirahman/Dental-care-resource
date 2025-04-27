@@ -3,10 +3,10 @@ import bannerImage from '../assets/banner-jpg.jpg'
 
 const Banner = () => {
     return (
-        <div className="hero bg-base-200 h-[400px]">
+        <div className="hero bg-base-200 h-[400px] p-2">
 
             <div className="flex justify-between items-center gap-3">
-                <div >
+                <div className='w-[40%]'>
                 <img
                     src={bannerImage}
                     
