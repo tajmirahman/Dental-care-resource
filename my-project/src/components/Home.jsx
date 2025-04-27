@@ -1,18 +1,27 @@
 import React from 'react';
 import Banner from './Banner';
-import { useLoaderData } from 'react-router-dom';
+import { NavLink, useLoaderData } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
+import FeedBackCard from './FeedBackCard';
 
 
 const Home = () => {
-    const services=useLoaderData();
-   
+    const { serviceData, feedBackData } = useLoaderData();
+
     return (
         <div className='mx-10'>
             <Banner />
-            <div className='grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-2'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-2 mt-6'>
                 {
-                    services.map(service=> <ServiceCard service={service}></ServiceCard>)
+                    serviceData.slice(0, 6).map(service => <ServiceCard service={service}></ServiceCard>)
+                }
+            </div>
+            <div className='text-center my-6'>
+                <NavLink to={'/treatment'}><button className='btn bg-sky-400'>Show More</button></NavLink>
+            </div>
+            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-2'>
+                {
+                    feedBackData.slice(0,3).map(data=> <FeedBackCard data={data}></FeedBackCard>)
                 }
             </div>
         </div>
