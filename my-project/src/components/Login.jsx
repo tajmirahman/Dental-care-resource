@@ -1,6 +1,6 @@
 
 import { useContext, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate,  } from 'react-router-dom';
 import { authContext } from './AuthProvider/AuthProvider';
 
 
@@ -8,7 +8,11 @@ const Login = () => {
 
     const { handleLogin } = useContext(authContext);
     const [error, setError] = useState('')
-    const navigate = useNavigate()
+    const location=useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const navigate=useNavigate();
+
+   
 
 
     const handleForm = (e) => {
@@ -19,7 +23,7 @@ const Login = () => {
         handleLogin(email, password)
 
             .then(() => {
-                navigate('/')
+                navigate(from, { replace: true });
             })
             .catch(err => {
                 setError(err.message)
