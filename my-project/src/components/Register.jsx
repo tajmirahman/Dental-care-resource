@@ -1,21 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { authContext } from './AuthProvider/AuthProvider';
 
 const Register = () => {
 
-    const {handleRegister}=useContext(authContext);
-    
+    const {handleRegister,handleUpdateUser}=useContext(authContext);
+    const [error,setError]=useState('');
 
     const handleForm=(e)=>{
         e.preventDefault();
 
         const name=e.target.name.value;
+        const image=e.target.photoUrl.value;
         const email=e.target.email.value;
         const password=e.target.password.value;
+        const conPassword=e.target.conPassword.value;
+
+        if(password != conPassword){
+            setError('password does not match')
+        }
 
         handleRegister(email,password)
-        .then(res=>console.log(res))
+        .then(()=>{
+            handleUpdateUser(name,image)
+            
+        })
         .catch(err=>console.log(err.message))
         
     }
@@ -43,7 +52,9 @@ const Register = () => {
                     <input type="password" name="conPassword" className='w-[70%] text-center' placeholder="Your Password" required />
                 </div>
                 <div className=" text-red-700 w-[60%] mx-auto  rounded-lg p-2 ">
-                    
+                    {
+                        error && <p className='text-red-500 bg-white w-[80%] mx-auto'>{error}</p>
+                    }
                 </div>
 
 
