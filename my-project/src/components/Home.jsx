@@ -3,6 +3,7 @@ import Banner from './Banner';
 import { NavLink, useLoaderData } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
 import FeedBackCard from './FeedBackCard';
+import Footer from './Footer';
 
 
 const Home = () => {
@@ -24,6 +25,8 @@ const Home = () => {
                     feedBackData.slice(0,3).map(data=> <FeedBackCard data={data}></FeedBackCard>)
                 }
             </div>
+
+            <Footer></Footer>
         </div>
     );
 };
