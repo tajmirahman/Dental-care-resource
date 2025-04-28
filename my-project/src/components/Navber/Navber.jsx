@@ -12,7 +12,7 @@ const Navber = () => {
                 <NavLink to={'/appointment'}>Appointments</NavLink>
             </div>
             <div>
-                <button className='btn bg-sky-500'>Login</button>
+                <NavLink to={'/login'}><button className='btn bg-sky-500'>Login</button></NavLink>
             </div>
         </div>
     );

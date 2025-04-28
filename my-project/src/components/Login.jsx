@@ -1,9 +1,13 @@
-import React from 'react';
+
 import { NavLink } from 'react-router-dom';
 
+
 const Login = () => {
+
+
+
     return (
-        <div className='bg-sky-600 w-[400px] h-[300px] md:w-[600px]  mx-auto  mt-5 p-6'>
+        <div className='bg-sky-500 w-[400px] h-[300px] md:w-[600px]  mx-auto  mt-5 p-6'>
 
             <h1 className='text-center text-2xl text-white '>Signup Your Account</h1>
 
@@ -20,7 +24,7 @@ const Login = () => {
 
 
                 <button type="submit" className='btn'>Sign Up</button>
-                <p className='text-white'>If you have already an account? please <NavLink to={'/login'}><span className='text-yellow-500 underline'>login</span></NavLink></p>
+                <p className='text-white'>If you have already an account? please <NavLink to={'/register'}><span className='text-black underline'>register</span></NavLink></p>
 
             </form>
 

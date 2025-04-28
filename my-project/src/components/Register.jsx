@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { authContext } from './AuthProvider/AuthProvider';
 
 const Register = () => {
+
+    const {handleRegister}=useContext(authContext);
+    
+
+    const handleForm=(e)=>{
+        e.preventDefault();
+
+        const name=e.target.name.value;
+        const email=e.target.email.value;
+        const password=e.target.password.value;
+
+        handleRegister(email,password)
+        .then(res=>console.log(res))
+        .catch(err=>console.log(err.message))
+        
+    }
+
+
     return (
-        <div className='bg-sky-600 w-[400px] md:w-[600px]  mx-auto  mt-5 '>
+        <div className='bg-sky-500 w-[400px] md:w-[600px]  mx-auto  mt-5 '>
 
             <h1 className='text-center text-2xl text-white mt-2'>Signup Your Account</h1>
 
-            <form className='space-y-2 text-center p-2'>
+            <form onSubmit={handleForm} className='space-y-2 text-center p-2'>
                 <div className='mt-2 '>
                     <input type="text" name="name" className='w-[70%] text-center' placeholder="Your Name" />
                 </div>
@@ -29,7 +48,7 @@ const Register = () => {
 
 
                 <button type="submit" className='btn'>Sign Up</button>
-                <p className='text-white'>If you have already an account? please <NavLink to={'/login'}><span className='text-yellow-500 underline'>login</span></NavLink></p>
+                <p className='text-white'>If you have already an account? please <NavLink to={'/login'}><span className='text-black underline'>login</span></NavLink></p>
 
             </form>
 
