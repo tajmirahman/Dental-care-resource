@@ -7,6 +7,7 @@ import Details from "../components/Details";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import PrivateRoute from "../components/PrivateRoute";
+import Profile from "../components/Profile";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,9 @@ const router = createBrowserRouter([
             },
             {
                 path:'/appointment',
-                element:<AllAppointment />
+                element:<PrivateRoute>
+                    <AllAppointment />
+                </PrivateRoute>
             },
             {
                 path:'/details/:id',
@@ -57,6 +60,12 @@ const router = createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/profile',
+                element:<PrivateRoute>
+                    <Profile></Profile>
+                </PrivateRoute>
             }
         ]
     }
