@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
-    console.log(service)
+
     const { id,description, cost, treatment, image } = service;
     return (
         <div className="card card-compact bg-base-100">

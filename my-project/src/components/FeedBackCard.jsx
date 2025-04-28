@@ -2,7 +2,6 @@ import React from 'react';
 
 const FeedBackCard = ({data}) => {
 
-    console.log(data)
     const {name,review,userImg}=data;
     
     return (
