@@ -4,6 +4,8 @@ import Home from "../components/Home";
 import AllTreatment from "../components/AllTreatment/AllTreatment";
 import AllAppointment from "../components/AllAppointment/AllAppointment";
 import Details from "../components/Details";
+import Login from "../components/Login";
+import Register from "../components/Register";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
                     return singleData;   
                 }
                 
+            },
+            {
+                path:'/login',
+                element:<Login></Login>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
             }
         ]
     }
