@@ -6,11 +6,10 @@ const ServiceCard = ({ service }) => {
     const { id,description, cost, treatment, image } = service;
     return (
         <div className="card card-compact bg-base-100">
-            <figure className='w-full h-[200px]'>
-                <img
-                className='w-full h-[400px] object-cover'
+            <figure className='w-full h-full'>
+                <img className='w-full h-full object-cover'
                     src={image}
-                    alt='' />
+                    alt="Shoes" />
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{treatment}
