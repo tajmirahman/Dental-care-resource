@@ -37,7 +37,7 @@ const Register = () => {
                     <input type="email" name="email" className='w-[70%]  text-center' placeholder="Your Email" required />
                 </div>
                 <div>
-                    <input type="password" name="password" className='w-[70%] text-center' placeholder="Your Password" required />
+                    <input type="text" name="password" className='w-[70%] text-center' placeholder="Your Password" required />
                 </div>
                 <div>
                     <input type="password" name="conPassword" className='w-[70%] text-center' placeholder="Your Password" required />
