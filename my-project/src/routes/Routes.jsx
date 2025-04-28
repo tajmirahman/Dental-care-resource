@@ -41,9 +41,7 @@ const router = createBrowserRouter([
 
                     const singleData= data.find(d=> d.id == params.id);
 
-                    return singleData;
-
-                    
+                    return singleData;   
                 }
                 
             }
