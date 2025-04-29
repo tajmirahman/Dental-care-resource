@@ -27,7 +27,7 @@ const Details = () => {
                 </div>
             </div>
 
-            <Modal></Modal>
+            <Modal treatment={treatment}></Modal>
 
         </div>
     );

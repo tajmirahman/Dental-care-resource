@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { authContext } from './AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
-const Modal = () => {
+const Modal = ({treatment}) => {
 
     const { user } = useContext(authContext);
     const navigate=useNavigate();
@@ -15,9 +15,10 @@ const Modal = () => {
         const phone=e.target.number.value;
         const appointmentDate=e.target.date.value;
         const address=e.target.address.value;
+        // const treatment=treatment;
 
         const info={
-            name,email,phone,appointmentDate,address
+            name,email,phone,appointmentDate,address,treatment
         }
 
 
@@ -50,6 +51,10 @@ const Modal = () => {
                         <div className="flex items-center gap-4">
                             <label className="w-32">Phone</label>
                             <input type="text" name="number" required className="input input-bordered flex-1" />
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <label className="w-32">Treatment</label>
+                            <input type="text"  value={treatment}  required className="input input-bordered flex-1" />
                         </div>
                         <div className="flex items-center gap-4">
                             <label className="w-32">Appointment Date</label>

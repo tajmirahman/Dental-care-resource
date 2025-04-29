@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import './/Navber.css'
 import { authContext } from '../AuthProvider/AuthProvider';
+import image from '../../assets/images.png'
 
 const Navber = () => {
 
@@ -17,15 +18,33 @@ const Navber = () => {
                 <NavLink to={'/appointment'}>Appointments</NavLink>
                 <NavLink to={'/profile'}>Profile</NavLink>
             </div>
-            <div>
-                {
-                    user && user?.email
-                        ?
-                        <button onClick={handleLogout} className='btn'>Logout</button>
-                        :
-                        <NavLink to={'/login'}><button className='btn bg-sky-500'>Login</button></NavLink>
-                }
 
+            <div className='flex justify-center items-center gap-3'>
+                <div>
+                    {
+                        user && user?.email
+                            ?
+                            <div className='flex justify-center items-center gap-2'>
+                                <img className='w-10 h-10 rounded-full' src={image} alt="" />
+                                <p className='font-bold'>{user.displayName}</p>
+                            </div>
+                            :
+                            ''
+                    }
+                </div>
+                <div>
+
+                    {
+                        user && user?.email
+                            ?
+
+                            <button onClick={handleLogout} className='btn'>Logout</button>
+
+                            :
+                            <NavLink to={'/login'}><button className='btn bg-sky-500'>Login</button></NavLink>
+                    }
+
+                </div>
             </div>
         </div>
     );
